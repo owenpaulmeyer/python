@@ -4,3 +4,5 @@ def substrings(s: str) -> list:
   for i in idxs:
     subs.append(string[i[0]:i[1]])
   return subs
+
+substrings("abcdefg")
