@@ -6,34 +6,46 @@
 
 # "Sally paid $20 for new shoes."
 # "Last weekend I bought a sandwich for $18.95"
-# "$#Q!@# Sally exclaimed. $38 was too much to pay for shoes."
-# "I only paid six dollars"
-
-# $.95 $0.95 $9.4
-
-
-def toWords(st):
-    return st.split()
-
-
-def isPrice(st):
-    if st[0] == '$':
+class Empty:
+    def isempty(self):
         return True
-    else:
+    
+    def __str__(self):
+        return '[]'
+    
+    
+class Node:
+    def __init__(self, head, tail = Empty()):
+        self.head = head
+        self.tail = tail
+        
+    def isempty(self):
         return False
+    
+    def __str__(self):
+        return str(self.head) + ', ' + str(self.tail)
+    
 
-def reprice(st):
-    if not isPrice(st):
-        return st
-    else:
-        st = st[1:]
-        number = float(st)
-        reduced = number * .8
-        result = "${:,.2f}".format(reduced)
-        return result
+def attatch_tail(node, tail):
+    node.tail = tail
+    return node
+        
 
-def myFunction(st):
-    words = toWords(st)
-    converted = list(map(reprice,words))
-    return " ".join(converted)
-  
+def append(head, alist):
+    return Node(head, alist)
+    
+def reverse(alist):
+    head = alist
+    tail = alist.tail
+    reversed = Empty()
+    
+    while not tail.isempty():
+        reversed = attatch_tail(head, reversed)
+        head = tail
+        tail = head.tail
+    return attatch_tail(head, reversed)
+
+
+ll = Empty()
+for n in range(1,6):
+    ll = append(n, ll)
