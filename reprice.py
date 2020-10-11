@@ -10,10 +10,14 @@
 # "I only paid six dollars"
 
 # $.95 $0.95 $9.4
-
+import re
 
 def toWords(st):
-    return st.split()
+    r = r'\s'
+    return re.split(r,st)
+
+#def toWords(st):
+#    return st.split()
 
 
 def isPrice(st):
