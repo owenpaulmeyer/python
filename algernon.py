@@ -1,6 +1,17 @@
 def substrings(string: str) -> list:
   return [string[i:j] for i in range(len(string)) for j in range(len(string)+1) if i < j]
 
+def substrings2(st):
+    s = 0
+    e = 1
+    strings = []
+    while s < len(st):
+        if e == len(st)+1:
+            s += 1
+            e = s + 1
+        strings.append(st[s:e])
+        e += 1
+    return strings
 
 def transpose(mx: list) -> list:
   size = len(mx[0])
