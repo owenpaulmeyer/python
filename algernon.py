@@ -37,3 +37,10 @@ def merge_lists(a_list, b_list):
             result.append(b_elem)
             b_idx += 1
     return result
+  
+  def maxSubArray(self, nums: List[int]) -> int:
+        ms = [0] * (len(nums))
+        ms[0] = nums[0]
+        for i in range(1,len(nums)):
+            ms[i] = max(ms[i-1] + nums[i], nums[i])
+        return max(ms)
