@@ -46,18 +46,15 @@ def merge_lists(a_list, b_list):
         return max(ms)
 
 def binary(arr, v):
-    length = len(arr) - 1
     start = 0
-    end = length
-    idx = (end - start) // 2
-    while True:
-        test = arr[idx]
-        if test == v: return idx
-        elif test > v:
-            end = idx
-            span = end - start
-            idx -= span // 2
-        else:
-            start = idx
-            span = end - start
-            idx += span // 2
+    end = len(arr) - 1
+    idx = 0
+  
+    while start <= end: 
+        idx = (end + start) // 2
+        if arr[idx] < v: 
+            start = idx + 1
+        elif arr[idx] > v: 
+            end = idx - 1
+        else: 
+            return idx
