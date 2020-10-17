@@ -45,7 +45,7 @@ def merge_lists(a_list, b_list):
             ms[i] = max(ms[i-1] + nums[i], nums[i])
         return max(ms)
 
-      def binary(arr, v):
+def binary(arr, v):
     length = len(arr) - 1
     start = 0
     end = length
