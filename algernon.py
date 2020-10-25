@@ -38,12 +38,20 @@ def merge_lists(a_list, b_list):
             b_idx += 1
     return result
   
-  def maxSubArray(self, nums: List[int]) -> int:
-        ms = [0] * (len(nums))
-        ms[0] = nums[0]
-        for i in range(1,len(nums)):
-            ms[i] = max(ms[i-1] + nums[i], nums[i])
-        return max(ms)
+def maxSubArray(nums):
+      ms = [0] * (len(nums))
+      ms[0] = nums[0]
+      for i in range(1,len(nums)):
+          ms[i] = max(ms[i-1] + nums[i], nums[i])
+      return max(ms)
+def maxSubArray2(nums):
+      mx = nums[0]
+      prev = nums[0]
+      for i in range(1,len(nums)):
+          current = max(prev + nums[i], nums[i])
+          mx = max(current, mx)
+          prev = current
+      return mx  
 
 def binary(arr, v):
     start = 0
