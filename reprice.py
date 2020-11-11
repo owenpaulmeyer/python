@@ -1,4 +1,3 @@
-
 # function. string input
 # parses string looking for prices
 # reduce and replaces prices by 20%
@@ -10,6 +9,7 @@
 # "I only paid six dollars"
 
 # $.95 $0.95 $9.4
+
 import re
 
 def toWords(st):
